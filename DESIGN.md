@@ -5,8 +5,7 @@ to learn where your project is headed. Replace each _italic prompt_.
 
 ## Target
 
-_One or two sentences: what is this creature, what does it eat, where does it live,
-and what should playing feel like?_
+The "creature" is a UCSC Loop Bus and it eats passengers. It lives on the Santa Cruz streets. Playing should feel silly.
 
 ## Menu choices
 
