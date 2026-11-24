@@ -16,7 +16,7 @@ var session := Session.new(GRID)
 var meshes := {}  # kit piece name -> Mesh, shared by everything that shows it (Flyweight)
 var segments: Array[MeshInstance3D] = []
 var camera := Camera3D.new()
-var food_mesh := MeshInstance3D.new()
+var passenger_mesh := MeshInstance3D.new()
 var score_label := Label.new()
 var _clock := 0.0
 
@@ -25,8 +25,8 @@ func _ready() -> void:
 	meshes = Stage.load_kit()
 	_build_stage()
 
-	food_mesh.mesh = meshes["food"]
-	add_child(food_mesh)
+	passenger_mesh.mesh = meshes["passenger"]
+	add_child(passenger_mesh)
 
 	var hud := CanvasLayer.new()
 	add_child(hud)
@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 		_clock -= TICK_SECONDS
 		session.tick()
 		_draw_dragon()
-		_draw_food()
+		_draw_passenger()
 	_follow(delta)
 
 
@@ -86,11 +86,11 @@ func _draw_dragon() -> void:
 		segment.rotation.y = placed[i][1] * PI / 2
 
 
-func _draw_food() -> void:
-	food_mesh.visible = session.food != Vector2i(-1, -1)
+func _draw_passenger() -> void:
+	passenger_mesh.visible = session.passenger != Vector2i(-1, -1)
 
-	if food_mesh.visible:
-		food_mesh.position = _center(session.food)
+	if passenger_mesh.visible:
+		passenger_mesh.position = _center(session.passenger)
 
 	score_label.text = "Score: %d" % session.score
 

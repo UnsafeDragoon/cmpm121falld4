@@ -28,6 +28,7 @@ already here from the starter; keep them accurate as you change things.
 | tick | one step of the rules; the dragon moves one cell | `Session.tick()`, `Dragon.tick()` |
 | tile kind | what a cell is made of, such as `floor` or `wall` | `Board.TILES`, `TILES` in `tools/build_art.py` |
 | piece | one model in the kit: head, straight, turn, tail | `Kit.Piece`, `PIECES` in `tools/build_art.py` |
+| passenger | the model the bus picks up to grow and add to score | `passenger_mesh` in `app/main.gd` |
 | _word_ | _meaning_ | _where_ |
 
 ## Where things live

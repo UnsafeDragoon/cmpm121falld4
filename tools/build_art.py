@@ -96,9 +96,9 @@ def make_materials():
         "s": pbr_material("Stone", "#9e9883", roughness=0.85),
         "t": pbr_material("Moss", "#6f8558", roughness=0.9),
         "w": pbr_material("Brick", "#6b4d3d", roughness=0.9),
-        "r": pbr_material("Red", "#b70000", roughness=0.75),
-        "b": pbr_material("Black", "#000000", roughness=0.75),
-        "d": pbr_material("Blue", "#001CA7", roughness=0.75)
+        "r": pbr_material("Shirt", "#b70000", roughness=0.75),
+        "b": pbr_material("Shoes", "#000000", roughness=0.75),
+        "d": pbr_material("Head", "#D7A76D", roughness=0.75),
     })
 
 
@@ -177,16 +177,21 @@ def build_tail(bm):
         """])
     
     
-def build_food(bm):
+def build_passenger(bm):
     voxels(bm, ["""
+        ....
+        .bb.
+        .bb.
+        ....
+    """, """
         ....
         .rr.
         .rr.
         ....
     """, """
         ....
-        ..b.
-        ....
+        .dd.
+        .dd.
         ....
     """])
 
@@ -220,7 +225,7 @@ TILES = {  # one entry per kind in core/board.gd's TILES; a new kind is one buil
     "wall": build_wall,
 }
 PICKUPS = {
-    "food": build_food,
+    "passenger": build_passenger,
 }
 
 
