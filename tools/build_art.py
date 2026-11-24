@@ -96,6 +96,9 @@ def make_materials():
         "s": pbr_material("Stone", "#9e9883", roughness=0.85),
         "t": pbr_material("Moss", "#6f8558", roughness=0.9),
         "w": pbr_material("Brick", "#6b4d3d", roughness=0.9),
+        "r": pbr_material("Red", "#b70000", roughness=0.75),
+        "b": pbr_material("Black", "#000000", roughness=0.75),
+        "d": pbr_material("Blue", "#001CA7", roughness=0.75)
     })
 
 
@@ -172,6 +175,20 @@ def build_tail(bm):
         ..#.
         ..o.
         """])
+    
+    
+def build_food(bm):
+    voxels(bm, ["""
+        ....
+        .rr.
+        .rr.
+        ....
+    """, """
+        ....
+        ..b.
+        ....
+        ....
+    """])
 
 
 def build_floor(bm):
@@ -201,6 +218,9 @@ PIECES = {  # the dragon kit; the game finds each mesh by these names
 TILES = {  # one entry per kind in core/board.gd's TILES; a new kind is one builder and one line
     "floor": build_floor,
     "wall": build_wall,
+}
+PICKUPS = {
+    "food": build_food,
 }
 
 
@@ -237,7 +257,7 @@ def lay_out_kit(scene):
     """One row per registry, so a GLB viewer shows a tidy catalog instead of every piece
     stacked on the origin. Each mesh is still modeled around its own cell's center."""
     spacing = 1.5
-    for row, registry in enumerate([PIECES, TILES]):
+    for row, registry in enumerate([PIECES, TILES, PICKUPS]):
         for column, (name, build) in enumerate(registry.items()):
             make_object(scene, name, build, location=(column * spacing, -row * spacing, 0))
 
