@@ -10,6 +10,10 @@ const DIRECTIONS := {
 	"ui_down": Vector2i.DOWN,
 	"ui_left": Vector2i.LEFT,
 	"ui_right": Vector2i.RIGHT,
+	"move_up": Vector2i.UP,
+	"move_down": Vector2i.DOWN,
+	"move_left": Vector2i.LEFT,
+	"move_right": Vector2i.RIGHT,
 }
 
 var session := Session.new(GRID)
