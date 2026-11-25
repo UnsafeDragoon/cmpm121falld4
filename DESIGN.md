@@ -13,8 +13,10 @@ Two items from two different groups (see the D4 guide's "The menu" tab).
 
 | Item | Group | Done when (in your words) |
 | --- | --- | --- |
-| _item_ | _group_ | _what you will be able to show_ |
-| _item_ | _group_ | _what you will be able to show_ |
+
+| Levels in text files | Language | TO DO: -Have at least 3 distinct levels -Levels are defined as text within separate files (Adding a level should need NO code) -Custom legend that maps characters to tile kinds -Some in-game way to access all 3 levels without external editors -Create levels in a sub folder levels/, core/level.gd, tests/level_test.gd -Parser test that loads ALL levels -Test to ensure all levels are playable |
+
+| Powerups | Systems | TO DO: -Implement at the very least, 3 different powerups -Adding and removing powerups require editing no operations other than definition -Separate files that should live within the core -Use class definitions alongside set interfaces (Strategy Pattern) -Define tests and pass for each powerup |
 
 ## Words we use
 
