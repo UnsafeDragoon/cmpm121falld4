@@ -65,3 +65,6 @@ versions we run (Godot 4.7, Blender 5.2). Add a row when a decision depends on o
 | Claim | Source (link) | How we checked it |
 | --- | --- | --- |
 | _what the tool does_ | _manual page or source file_ | _what we ran or looked at_ |
+
+
+| Emission Property, Emission and strength, metallic, and roughness | https://docs.blender.org/manual/en/latest/addons/scene_gltf2.html | Used within build_art.py for creating the bus shell and lights

@@ -44,7 +44,6 @@ func _ready() -> void:
 
 ## Input arrives as events, so even a tap shorter than one frame is never missed.
 func _unhandled_input(event: InputEvent) -> void:
-
 	#allows player to restart after pressing r
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_R and session.game_over:

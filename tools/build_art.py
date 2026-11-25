@@ -89,14 +89,17 @@ def srgb(hex_code):
 def make_materials():
     """One material per voxel character. Runs after reset_scene(), which would erase them."""
     PALETTE.update({
-        "#": pbr_material("Scales", "#2f9e5b", metallic=0.2, roughness=0.45),
-        "*": pbr_material("Gold", "#f2bf3a", metallic=1.0, roughness=0.3),
-        "e": pbr_material("Eye", "#ffb22e", emission="#ffa21a", strength=4.0),
-        "o": pbr_material("Ember", "#ff6a1a", emission="#ff4a08", strength=3.0),
-        "s": pbr_material("Stone", "#9e9883", roughness=0.85),
-        "t": pbr_material("Moss", "#6f8558", roughness=0.9),
-        "w": pbr_material("Brick", "#6b4d3d", roughness=0.9),
-        "r": pbr_material("Shirt", "#b70000", roughness=0.75),
+        "#": pbr_material("Metal", "#ffffff"),
+        "S": pbr_material("Screen", "#3f3f3f", metallic=1, roughness=0.45),
+        "L": pbr_material("Headlights", "#c06600", emission="#ff8800", strength=4.0),
+        "B": pbr_material("Brakelights", "#cc0000c8", emission="#ff0000", strength=4.0),
+        "*": pbr_material("Tires", "#000000", metallic=1.0, roughness=0.3),
+        "e": pbr_material("Window", "#000000"),
+        "s": pbr_material("Asphalt", "#0E0E0E", roughness=0.85),
+        "t": pbr_material("MixIn", "#2B2B2B", roughness=0.9),
+        "$": pbr_material("TreeBase", "#864522", roughness=0.9),
+        "@": pbr_material("TreeLeaves", "#1d411a", roughness=0.9),
+        "r": pbr_material("Shirt", "#6d3d3d", roughness=0.75),
         "b": pbr_material("Shoes", "#000000", roughness=0.75),
         "d": pbr_material("Head", "#D7A76D", roughness=0.75),
     })
@@ -127,53 +130,142 @@ def voxels(bm, layers, below_ground=0):
 
 
 def build_head(bm):
-    voxels(bm, ["""
-        .##.
-        ####
-        ####
-        .##.
-        """, """
-        ....
-        e##e
-        .##.
-        .##.
-        """, """
+    voxels(bm, [
+        """
         ....
         ....
         *..*
         ....
+        """,
+        """
+        L##L
+        ####
+        ###e
+        ####
+        """, """
+        eeee
+        #ee#
+        eeee
+        eee#
+        """,
+        """
+        eeee
+        #ee#
+        eeee
+        eee#
+        """, """
+        #SS#
+        ####
+        ####
+        ####
+        """,
+        """
+        ####
+        ####
+        ####
+        ####
         """])
 
 
 def build_straight(bm):
-    voxels(bm, ["""
-        .##.
-        .##.
-        .##.
-        .##.
+    voxels(bm, [
+        """
+        ....
+        ....
+        ....
+        *..*
+        """,
+        """
+        ####
+        ####
+        ####
+        ####
         """, """
-        ....
-        .*..
-        ....
-        .*..
+        eeee
+        eeee
+        #ee#
+        eeee
+        """,
+        """
+        eeee
+        eeee
+        #ee#
+        eeee
+        """, """
+        ####
+        ####
+        ####
+        ####
         """])
 
 
 def build_turn(bm):
-    voxels(bm, ["""
+    voxels(bm, [
+        """
         ....
-        .###
-        .###
-        .##.
+        ....
+        *..*
+        ....
+        """,
+        """
+        ####
+        ####
+        ####
+        ####
+        """, """
+        eeee
+        eeee
+        #ee#
+        eeee
+        """,
+        """
+        eeee
+        eeee
+        #ee#
+        eeee
+        """, """
+        ####
+        ####
+        ####
+        ####
         """])
 
 
 def build_tail(bm):
-    voxels(bm, ["""
-        .##.
-        .##.
-        ..#.
-        ..o.
+    voxels(bm, [
+        """
+        ....
+        ....
+        *..*
+        ....
+        """,
+        """
+        ####
+        ####
+        ####
+        B##B
+        """, """
+        eeee
+        eeee
+        eeee
+        ####
+        """,
+        """
+        eeee
+        eeee
+        eeee
+        ####
+        """, """
+        ####
+        ####
+        ####
+        ####
+        """,
+        """
+        ....
+        ....
+        ####
+        ####
         """])
     
     
@@ -207,11 +299,35 @@ def build_floor(bm):
 
 def build_wall(bm):
     voxels(bm, ["""
-        wwww
-        wwww
-        wwww
-        wwww
-        """] * 3)
+        ....
+        .$$.
+        .$$.
+        ....
+        """,
+        """
+        ....
+        .$$.
+        .$$.
+        ....
+        """,
+        """
+        @@@@
+        @@@@
+        @@@@
+        @@@@
+        """,
+        """
+        @@@@
+        @@@@
+        @@@@
+        @@@@
+        """,
+        """
+        ....
+        .@@.
+        .@@.
+        ....
+        """])
 
 
 PIECES = {  # the dragon kit; the game finds each mesh by these names

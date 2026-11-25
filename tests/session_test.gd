@@ -41,12 +41,7 @@ func test_hitting_wall_ends_game() -> void:
 	var session := Session.new(Vector2i(10, 10))
 	session.started = true
 
-	session.dragon.body = [
-		Vector2i(8, 5),
-		Vector2i(7, 5),
-		Vector2i(6, 5),
-		Vector2i(5, 5)
-	]
+	session.dragon.body = [Vector2i(8, 5), Vector2i(7, 5), Vector2i(6, 5), Vector2i(5, 5)]
 
 	session.tick()
 
@@ -59,11 +54,7 @@ func test_hitting_body_ends_game() -> void:
 	session.started = true
 
 	session.dragon.body = [
-		Vector2i(3, 3),
-		Vector2i(3, 4),
-		Vector2i(4, 4),
-		Vector2i(4, 3),
-		Vector2i(5, 3)
+		Vector2i(3, 3), Vector2i(3, 4), Vector2i(4, 4), Vector2i(4, 3), Vector2i(5, 3)
 	]
 
 	session.tick()

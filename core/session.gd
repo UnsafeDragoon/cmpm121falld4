@@ -40,9 +40,9 @@ func spawn_passenger() -> void:
 ## own body and with solid tiles (board.is_solid). Each needs the dragon and something
 ## else, which is why they go here rather than in Dragon.tick.
 func tick() -> void:
-	if not started or game_over: 
+	if not started or game_over:
 		return
-	
+
 	var old_body := dragon.body.duplicate()
 	var old_tail: Vector2i = dragon.body.back()
 	dragon.tick()

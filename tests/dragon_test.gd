@@ -22,5 +22,3 @@ func test_two_quick_turns_apply_on_successive_ticks() -> void:
 	assert_eq(dragon.heading, Vector2i.UP)
 	dragon.tick()
 	assert_eq(dragon.heading, Vector2i.LEFT)
-
-	
